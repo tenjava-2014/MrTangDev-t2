@@ -1,0 +1,3 @@
+name: MrTangDev-t2
+main: com.tenjava.entries.MrTangDev.t2.TenJava
+version: '${project.version}'
