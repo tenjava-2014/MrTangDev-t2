@@ -26,6 +26,10 @@ public class CheckEnergy implements CommandExecutor {
 		    if (plugin.getConfig().getKeys(false).contains(playerUUID)) {
 			player.sendMessage(ChatColor.GREEN + "Your generators energy level is at: " 
 				+ plugin.getConfig().getInt(playerUUID + ".energy"));
+			return true;
+		    } else {
+			sender.sendMessage(ChatColor.RED + "You need a generator to check this.");
+			return false;
 		    }
 		} else {
 		    plugin.msg.noPerm(sender);
