@@ -29,7 +29,9 @@ Usage
 -----
 
 1. Install plugin
-2. Do things with it
+2. Start up server
+3. Begin with /createbutton, this will give you a stone button
+
 
 <!-- Hi, MrTangDev! This is the default README for every ten.java submission. -->
 <!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
