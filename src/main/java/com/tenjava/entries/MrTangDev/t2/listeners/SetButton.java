@@ -3,6 +3,7 @@ package com.tenjava.entries.MrTangDev.t2.listeners;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,6 +35,7 @@ public class SetButton implements Listener {
 	    plugin.getConfig().set("z", z);
 
 	    player.sendMessage(ChatColor.GREEN + "Created a generator starter");
+	    player.getWorld().playSound(buttonLoc, Sound.FIZZ, 1, 10);
 	}
     }
 

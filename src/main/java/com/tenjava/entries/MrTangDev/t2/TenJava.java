@@ -21,6 +21,11 @@ public class TenJava extends JavaPlugin {
     @Override
     public void onEnable() {
 	plugin = this;
+	
+	getCommand("createbutton").setExecutor(buttonCmd);
+	
+	registerEvents();
+	
 	System.out.println("doge says woof.");
     }
     

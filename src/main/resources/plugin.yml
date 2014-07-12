@@ -1,3 +1,9 @@
 name: MrTangDev-t2
 main: com.tenjava.entries.MrTangDev.t2.TenJava
 version: '${project.version}'
+
+commands:
+  createbutton:
+    description: Get a button to make the generator starter
+    usage: /<command>
+    aliases: [creategenerator, makebutton, startbutton]

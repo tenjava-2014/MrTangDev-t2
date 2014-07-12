@@ -12,20 +12,22 @@ import com.tenjava.entries.MrTangDev.t2.TenJava;
 public class GeneratorStart implements Listener {
 
     public TenJava plugin;
-    
+
     public GeneratorStart(TenJava m) {
 	plugin = m;
     }
-    
-    
-    
+
+
+
     @EventHandler
-    public void onLightningStart(PlayerInteractEvent event) {
+    public void onGeneratorStart(PlayerInteractEvent event) {
 	Player player = event.getPlayer();
 	if (event.getClickedBlock().getType() == Material.STONE_BUTTON) {
 	    Location blockLoc = event.getClickedBlock().getLocation();
-	    if (blockLoc.getBlockX() == plugin.getConfig().getInt("x")) {
-		
+	    if ((blockLoc.getBlockX() == plugin.getConfig().getInt("x"))
+		    && (blockLoc.getBlockY() == plugin.getConfig().getInt("y"))
+		    && (blockLoc.getBlockY() == plugin.getConfig().getInt("y"))) {
+		System.out.println("sfafsd");
 	    }
 	}
     }

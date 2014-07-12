@@ -28,7 +28,7 @@ public class GeneratorButton implements CommandExecutor {
 	if (cmd.getName().equalsIgnoreCase("createbutton")) {
 	    if (sender instanceof Player) {
 		Player player = (Player) sender;
-		if (player.hasPermission("energy.create")) {
+		if (player.hasPermission("energy.create") || player.isOp()) {
 		    playerList.add(player.getName());
 
 		    player.getInventory().addItem(new ItemStack(Material.STONE_BUTTON));
