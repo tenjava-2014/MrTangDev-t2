@@ -16,6 +16,8 @@ public class CheckEnergy implements CommandExecutor {
 	plugin = m;
     }
 
+    //Command for checking energy your generator has
+    
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]) {
 	if (cmd.getName().equalsIgnoreCase("checkenergy")) {

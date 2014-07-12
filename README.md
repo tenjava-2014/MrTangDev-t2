@@ -30,7 +30,7 @@ Usage
 
 1. Install plugin
 2. Start up server
-3. Begin with /createbutton, this will give you a stone button
+3. Begin with /createbutton, this will give you some instructions
 
 
 <!-- Hi, MrTangDev! This is the default README for every ten.java submission. -->

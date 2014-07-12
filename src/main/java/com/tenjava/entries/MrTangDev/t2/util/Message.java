@@ -30,13 +30,4 @@ public class Message {
     public void playerOnly(CommandSender sender) {
 	sender.sendMessage(ChatColor.RED + "This command is player-only!");
     }
-    
-    /**
-     * Sends invalid arguments message
-     * 
-     * @param sender Message receiver
-     */
-    public void argMsg(CommandSender sender) {
-	sender.sendMessage(ChatColor.RED + "Invalid arguments!");
-    }
 }

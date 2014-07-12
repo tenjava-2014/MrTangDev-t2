@@ -60,6 +60,9 @@ public class GeneratorStart implements Listener {
 	}
     }
 
+    /**
+     * This will make some energy
+     */
     public void generatorAction() {
 	Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
 	    @Override

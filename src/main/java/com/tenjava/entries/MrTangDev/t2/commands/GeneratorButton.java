@@ -22,6 +22,8 @@ public class GeneratorButton implements CommandExecutor {
 
     public ArrayList<String> playerList = new ArrayList<String>();
     
+    //Gives you a button, allows you to create a generator
+    
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]) {
 	if (cmd.getName().equalsIgnoreCase("createbutton")) {

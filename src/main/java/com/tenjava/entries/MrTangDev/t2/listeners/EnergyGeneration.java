@@ -16,6 +16,8 @@ public class EnergyGeneration implements Listener {
 	plugin = m;
     }
 
+    //Easter egg!?!?
+    
     @EventHandler
     public void onLightningHit(LightningStrikeEvent event) {
 	for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
