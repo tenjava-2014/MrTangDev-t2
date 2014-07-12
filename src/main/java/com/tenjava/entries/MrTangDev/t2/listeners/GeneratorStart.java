@@ -8,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -26,20 +25,6 @@ public class GeneratorStart implements Listener {
 	plugin = m;
     }
 
-    public void startGenerator(final World world, final Location loc) {
-	Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
-	    @Override
-	    public void run() {
-		Random random = new Random();
-		int x = random.nextInt(10) + loc.getBlockX();
-		int y = random.nextInt(-1) + loc.getBlockY();
-		int z = random.nextInt(10) + loc.getBlockZ();
-		Location rLoc = new Location(world, x, y, z);
-		world.strikeLightning(rLoc);
-	    }
-	}, 100l, 200l);
-    }
-
     @EventHandler
     public void onGeneratorStart(PlayerInteractEvent event) {
 	Player player = event.getPlayer();
@@ -53,8 +38,8 @@ public class GeneratorStart implements Listener {
 		    player.setLevel(player.getLevel() - 30);
 		    player.sendMessage(ChatColor.DARK_GREEN + "You started up the energy generator...");
 		    player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
-
-		    startGenerator(player.getWorld(), blockLoc);
+		    
+		    plugin.getConfig().set(playerUUID + ".isActive", true);
 
 		    ArrayList<Player> nearbyPlayers = new ArrayList<Player>();
 		    for (Entity nearbyEntity : player.getNearbyEntities(50, 50, 50)) {
@@ -73,5 +58,29 @@ public class GeneratorStart implements Listener {
 		}
 	    }
 	}
+    }
+
+    public void generatorAction() {
+	Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+	    @Override
+	    public void run() {
+		for (Player player : Bukkit.getOnlinePlayers()) {
+		    if (plugin.getConfig().getBoolean(player.getUniqueId().toString() + ".isActive")) {
+			
+			int locX = plugin.getConfig().getInt(player.getUniqueId().toString() + ".x");
+			int locY = plugin.getConfig().getInt(player.getUniqueId().toString() + ".y");
+			int locZ = plugin.getConfig().getInt(player.getUniqueId().toString() + ".z");
+			String world = plugin.getConfig().getString(player.getUniqueId().toString() + ".world");
+			
+			Random random = new Random();
+			int x = random.nextInt(10) + locX;
+			int y = locY;
+			int z = random.nextInt(10) + locZ;
+			Location rLoc = new Location(Bukkit.getWorld(world), x, y, z);
+			Bukkit.getWorld(world).strikeLightning(rLoc);
+		    }
+		}
+	    }
+	}, 100l, 200l);
     }
 }

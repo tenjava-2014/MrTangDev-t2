@@ -46,15 +46,15 @@ public class SetButton implements Listener {
 		    plugin.getConfig().set(playerUUID + ".x", x);
 		    plugin.getConfig().set(playerUUID + ".y", y);
 		    plugin.getConfig().set(playerUUID + ".z", z);
+		    plugin.getConfig().set(playerUUID + ".world", player.getWorld().getName());
+		    plugin.getConfig().set(playerUUID + ".energy", 0);
+		    plugin.getConfig().set(playerUUID + ".isActive", false);
 		    plugin.saveConfig();
 
 		    player.sendMessage(ChatColor.GREEN + "Created a generator starter");
 		    player.getWorld().playSound(buttonLoc, Sound.FIZZ, 1, 10);
 		    return;
-		} else {
-		    player.sendMessage(ChatColor.RED + "The generator button needs to be on an iron block.");
-		    return;
-		}
+		} 
 	    }
 	}
     }

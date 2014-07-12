@@ -26,8 +26,9 @@ public class TenJava extends JavaPlugin {
 	
 	getCommand("createbutton").setExecutor(buttonCmd);
 	
-	registerEvents();
+	plugin.gsListener.generatorAction();
 	
+	registerEvents();
     }
     
     @Override
