@@ -27,13 +27,14 @@ public class SetButton implements Listener {
 	    Location buttonLoc = event.getBlock().getLocation();
 
 	    int x = buttonLoc.getBlockX();
-	    int y = buttonLoc.getBlockZ();
+	    int y = buttonLoc.getBlockY();
 	    int z = buttonLoc.getBlockZ();
 
 	    plugin.getConfig().set("x", x);
 	    plugin.getConfig().set("y", y);
 	    plugin.getConfig().set("z", z);
-
+	    plugin.saveConfig();
+	    
 	    player.sendMessage(ChatColor.GREEN + "Created a generator starter");
 	    player.getWorld().playSound(buttonLoc, Sound.FIZZ, 1, 10);
 	}

@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.tenjava.entries.MrTangDev.t2.commands.GeneratorButton;
 import com.tenjava.entries.MrTangDev.t2.listeners.GeneratorStart;
+import com.tenjava.entries.MrTangDev.t2.listeners.SetButton;
 import com.tenjava.entries.MrTangDev.t2.util.Message;
 
 public class TenJava extends JavaPlugin {
@@ -17,6 +18,7 @@ public class TenJava extends JavaPlugin {
     public GeneratorButton buttonCmd = new GeneratorButton(this);
     
     public GeneratorStart gsListener = new GeneratorStart(this);
+    public SetButton set = new SetButton(this);
     
     @Override
     public void onEnable() {
@@ -26,7 +28,6 @@ public class TenJava extends JavaPlugin {
 	
 	registerEvents();
 	
-	System.out.println("doge says woof.");
     }
     
     @Override
@@ -37,5 +38,6 @@ public class TenJava extends JavaPlugin {
     public void registerEvents() {
 	PluginManager pm = Bukkit.getServer().getPluginManager();
 	pm.registerEvents(gsListener, plugin);
+	pm.registerEvents(set, plugin);
     }
 }
