@@ -31,13 +31,13 @@ public class GeneratorStart implements Listener {
 	    @Override
 	    public void run() {
 		Random random = new Random();
-		int x = random.nextInt(15) + loc.getBlockX();
-		int y = loc.getBlockY();
-		int z = random.nextInt(15) + loc.getBlockZ();
+		int x = random.nextInt(10) + loc.getBlockX();
+		int y = random.nextInt(-1) + loc.getBlockY();
+		int z = random.nextInt(10) + loc.getBlockZ();
 		Location rLoc = new Location(world, x, y, z);
 		world.strikeLightning(rLoc);
 	    }
-	}, 100l, 300l);
+	}, 100l, 200l);
     }
 
     @EventHandler
@@ -50,6 +50,7 @@ public class GeneratorStart implements Listener {
 		    && (blockLoc.getBlockY() == plugin.getConfig().getInt(playerUUID + ".y"))
 		    && (blockLoc.getBlockZ() == plugin.getConfig().getInt(playerUUID + ".z"))) {
 		if (player.getLevel() >= 30) {
+		    player.setLevel(player.getLevel() - 30);
 		    player.sendMessage(ChatColor.DARK_GREEN + "You started up the energy generator...");
 		    player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
 
