@@ -1,5 +1,7 @@
 package com.tenjava.entries.MrTangDev.t2.listeners;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.weather.LightningStrikeEvent;
@@ -16,6 +18,14 @@ public class EnergyGeneration implements Listener {
 
     @EventHandler
     public void onLightningHit(LightningStrikeEvent event) {
-	//if ((event.getLightning().getLocation().getBlockX() == ))
+	for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+	    String playerUUID = onlinePlayer.getUniqueId().toString();
+	    if (plugin.getConfig().getString(playerUUID) != null) {
+		if ((event.getLightning().getLocation().getBlockX() == plugin.getConfig().getInt(playerUUID + ".iron.x"))
+			&& (event.getLightning().getLocation().getBlockZ() == plugin.getConfig().getInt(playerUUID + ".iron.z"))) {
+		    
+		}
+	    }
+	}
     }
 }
