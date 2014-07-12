@@ -20,6 +20,6 @@ public class GeneratorStart implements Listener {
     @EventHandler
     public void onLightningStart(PlayerInteractEvent event) {
 	Player player = event.getPlayer();
-	if (event.getClickedBlock().getType() == Material.STONE_BUTTON)
+	//if (event.getClickedBlock().getType() == Material.STONE_BUTTON)
     }
 }
