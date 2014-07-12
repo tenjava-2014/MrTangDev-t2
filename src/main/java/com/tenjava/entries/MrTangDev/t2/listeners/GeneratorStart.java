@@ -49,23 +49,26 @@ public class GeneratorStart implements Listener {
 	    if ((blockLoc.getBlockX() == plugin.getConfig().getInt(playerUUID + ".x"))
 		    && (blockLoc.getBlockY() == plugin.getConfig().getInt(playerUUID + ".y"))
 		    && (blockLoc.getBlockZ() == plugin.getConfig().getInt(playerUUID + ".z"))) {
+		if (player.getLevel() >= 30) {
+		    player.sendMessage(ChatColor.DARK_GREEN + "You started up the energy generator...");
+		    player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
 
-		player.sendMessage(ChatColor.DARK_GREEN + "You started the energy generator...");
-		player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
-		
-		startGenerator(player.getWorld(), blockLoc);
+		    startGenerator(player.getWorld(), blockLoc);
 
-		ArrayList<Player> nearbyPlayers = new ArrayList<Player>();
-		for (Entity nearbyEntity : player.getNearbyEntities(50, 50, 50)) {
-		    if (nearbyEntity instanceof Player) {
-			Player nearbyPlayer = (Player) nearbyEntity;
-			nearbyPlayers.add(nearbyPlayer);
+		    ArrayList<Player> nearbyPlayers = new ArrayList<Player>();
+		    for (Entity nearbyEntity : player.getNearbyEntities(50, 50, 50)) {
+			if (nearbyEntity instanceof Player) {
+			    Player nearbyPlayer = (Player) nearbyEntity;
+			    nearbyPlayers.add(nearbyPlayer);
+			}
 		    }
-		}
 
-		for (Player someNearbyPlayer : nearbyPlayers) {
-		    someNearbyPlayer.sendMessage(ChatColor.DARK_GRAY + "What is this sound...");
-		    someNearbyPlayer.playSound(someNearbyPlayer.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
+		    for (Player someNearbyPlayer : nearbyPlayers) {
+			someNearbyPlayer.sendMessage(ChatColor.DARK_GRAY + "What was that sound...?");
+			someNearbyPlayer.playSound(someNearbyPlayer.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
+		    }
+		} else {
+		    player.sendMessage(ChatColor.RED + "You need at least 30 levels to use this.");
 		}
 	    }
 	}

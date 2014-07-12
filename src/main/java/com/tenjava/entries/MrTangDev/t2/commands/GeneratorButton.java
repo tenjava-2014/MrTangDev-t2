@@ -22,8 +22,6 @@ public class GeneratorButton implements CommandExecutor {
 
     public ArrayList<String> playerList = new ArrayList<String>();
     
-
-    //so many if-else
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]) {
 	if (cmd.getName().equalsIgnoreCase("createbutton")) {
@@ -33,7 +31,8 @@ public class GeneratorButton implements CommandExecutor {
 		    playerList.add(player.getName());
 		    
 		    player.getInventory().addItem(new ItemStack(Material.STONE_BUTTON));
-		    player.sendMessage(ChatColor.YELLOW + "Place a stone button to create the generator starter.");
+		    player.sendMessage(ChatColor.YELLOW + "Place a stone button on an Iron Block to create the generator starter.");
+		    player.sendMessage(ChatColor.YELLOW + "You will need a lot of experience to start it up...");
 		    return true;
 		} else {
 		    plugin.msg.noPerm(sender);
