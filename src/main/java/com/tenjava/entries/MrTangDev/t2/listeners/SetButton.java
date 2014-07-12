@@ -24,15 +24,16 @@ public class SetButton implements Listener {
 	Player player = event.getPlayer();
 	if ((event.getBlock().getType() == Material.STONE_BUTTON) && (plugin.buttonCmd.playerList.contains(player.getName()))) {
 
+	    String playerUUID = player.getUniqueId().toString();
 	    Location buttonLoc = event.getBlock().getLocation();
-
+	    
 	    int x = buttonLoc.getBlockX();
 	    int y = buttonLoc.getBlockY();
 	    int z = buttonLoc.getBlockZ();
 
-	    plugin.getConfig().set("x", x);
-	    plugin.getConfig().set("y", y);
-	    plugin.getConfig().set("z", z);
+	    plugin.getConfig().set(playerUUID + ".x", x);
+	    plugin.getConfig().set(playerUUID + ".y", y);
+	    plugin.getConfig().set(playerUUID + ".z", z);
 	    plugin.saveConfig();
 	    
 	    player.sendMessage(ChatColor.GREEN + "Created a generator starter");

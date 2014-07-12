@@ -45,9 +45,10 @@ public class GeneratorStart implements Listener {
 	Player player = event.getPlayer();
 	if ((event.getAction() == Action.RIGHT_CLICK_BLOCK) && (event.getClickedBlock().getType() == Material.STONE_BUTTON)) {
 	    Location blockLoc = event.getClickedBlock().getLocation();
-	    if ((blockLoc.getBlockX() == plugin.getConfig().getInt("x"))
-		    && (blockLoc.getBlockY() == plugin.getConfig().getInt("y"))
-		    && (blockLoc.getBlockZ() == plugin.getConfig().getInt("z"))) {
+	    String playerUUID = player.getUniqueId().toString();
+	    if ((blockLoc.getBlockX() == plugin.getConfig().getInt(playerUUID + ".x"))
+		    && (blockLoc.getBlockY() == plugin.getConfig().getInt(playerUUID + ".y"))
+		    && (blockLoc.getBlockZ() == plugin.getConfig().getInt(playerUUID + ".z"))) {
 
 		player.sendMessage(ChatColor.DARK_GREEN + "You started the energy generator...");
 		player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);

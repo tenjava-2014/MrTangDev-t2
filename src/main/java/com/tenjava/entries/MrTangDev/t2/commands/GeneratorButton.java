@@ -21,6 +21,7 @@ public class GeneratorButton implements CommandExecutor {
     }
 
     public ArrayList<String> playerList = new ArrayList<String>();
+    
 
     //so many if-else
     @Override
@@ -30,7 +31,7 @@ public class GeneratorButton implements CommandExecutor {
 		Player player = (Player) sender;
 		if (player.hasPermission("energy.create") || player.isOp()) {
 		    playerList.add(player.getName());
-
+		    
 		    player.getInventory().addItem(new ItemStack(Material.STONE_BUTTON));
 		    player.sendMessage(ChatColor.YELLOW + "Place a stone button to create the generator starter.");
 		    return true;
