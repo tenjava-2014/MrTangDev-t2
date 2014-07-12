@@ -7,3 +7,6 @@ commands:
     description: Get a button to make the generator starter
     usage: /<command>
     aliases: [creategenerator, makebutton, startbutton]
+  checkenergy:
+    description: Check your generators energy
+    usage: /<command>

@@ -65,22 +65,24 @@ public class GeneratorStart implements Listener {
 	    @Override
 	    public void run() {
 		for (Player player : Bukkit.getOnlinePlayers()) {
-		    if (plugin.getConfig().getBoolean(player.getUniqueId().toString() + ".isActive")) {
+		    if (plugin.getConfig().getKeys(false).contains(player.getUniqueId().toString())) {
+			if (plugin.getConfig().getBoolean(player.getUniqueId().toString() + ".isActive")) {
 
-			int locX = plugin.getConfig().getInt(player.getUniqueId().toString() + ".x");
-			int locY = plugin.getConfig().getInt(player.getUniqueId().toString() + ".y");
-			int locZ = plugin.getConfig().getInt(player.getUniqueId().toString() + ".z");
-			String world = plugin.getConfig().getString(player.getUniqueId().toString() + ".world");
+			    int locX = plugin.getConfig().getInt(player.getUniqueId().toString() + ".x");
+			    int locY = plugin.getConfig().getInt(player.getUniqueId().toString() + ".y");
+			    int locZ = plugin.getConfig().getInt(player.getUniqueId().toString() + ".z");
+			    String world = plugin.getConfig().getString(player.getUniqueId().toString() + ".world");
 
-			Random random = new Random();
-			int x = random.nextInt(10) + locX;
-			int y = locY;
-			int z = random.nextInt(10) + locZ;
-			Location rLoc = new Location(Bukkit.getWorld(world), x, y, z);
-			Bukkit.getWorld(world).strikeLightning(rLoc); //Mostly for the "attracts lightning" effect.
+			    Random random = new Random();
+			    int x = random.nextInt(10) + locX;
+			    int y = locY;
+			    int z = random.nextInt(10) + locZ;
+			    Location rLoc = new Location(Bukkit.getWorld(world), x, y, z);
+			    Bukkit.getWorld(world).strikeLightning(rLoc); //Mostly for the "attracts lightning" effect.
 
-			int energyLevel = plugin.getConfig().getInt(player.getUniqueId().toString() + ".energy");
-			plugin.getConfig().set(player.getUniqueId().toString() + ".energy", energyLevel + 1);
+			    int energyLevel = plugin.getConfig().getInt(player.getUniqueId().toString() + ".energy");
+			    plugin.getConfig().set(player.getUniqueId().toString() + ".energy", energyLevel + 1);
+			}
 		    }
 		}
 	    }

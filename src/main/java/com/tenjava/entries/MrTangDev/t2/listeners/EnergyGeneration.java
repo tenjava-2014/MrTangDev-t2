@@ -20,7 +20,7 @@ public class EnergyGeneration implements Listener {
     public void onLightningHit(LightningStrikeEvent event) {
 	for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
 	    String playerUUID = onlinePlayer.getUniqueId().toString();
-	    if (plugin.getConfig().getString(playerUUID) != null) {
+	    if (plugin.getConfig().getKeys(false).contains(playerUUID)) {
 		if ((event.getLightning().getLocation().getBlockX() == plugin.getConfig().getInt(playerUUID + ".iron.x"))
 			&& (event.getLightning().getLocation().getBlockZ() == plugin.getConfig().getInt(playerUUID + ".iron.z"))) {
 		    plugin.getConfig().set(playerUUID + ".energy", 9001*2);

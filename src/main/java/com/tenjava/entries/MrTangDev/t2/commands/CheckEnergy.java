@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import com.tenjava.entries.MrTangDev.t2.TenJava;
 
-public class CheckEnergy  implements CommandExecutor {
+public class CheckEnergy implements CommandExecutor {
 
     public TenJava plugin;
 
@@ -27,7 +27,13 @@ public class CheckEnergy  implements CommandExecutor {
 			player.sendMessage(ChatColor.GREEN + "Your generators energy level is at: " 
 				+ plugin.getConfig().getInt(playerUUID + ".energy"));
 		    }
+		} else {
+		    plugin.msg.noPerm(sender);
+		    return false;
 		}
+	    } else {
+		plugin.msg.playerOnly(sender);
+		return false;
 	    }
 	}
 	return false;
