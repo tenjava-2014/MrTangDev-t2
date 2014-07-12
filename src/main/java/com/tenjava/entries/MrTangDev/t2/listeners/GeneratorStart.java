@@ -1,6 +1,5 @@
 package com.tenjava.entries.MrTangDev.t2.listeners;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +20,6 @@ public class GeneratorStart implements Listener {
     @EventHandler
     public void onLightningStart(PlayerInteractEvent event) {
 	Player player = event.getPlayer();
-	//if (event.getClickedBlock().getType() == Material.STONE_BUTTON)
+	if (event.getClickedBlock().getType() == Material.STONE_BUTTON)
     }
 }

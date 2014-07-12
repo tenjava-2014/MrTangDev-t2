@@ -1,5 +1,7 @@
 package com.tenjava.entries.MrTangDev.t2;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.tenjava.entries.MrTangDev.t2.listeners.GeneratorStart;
@@ -19,5 +21,10 @@ public class TenJava extends JavaPlugin {
     @Override
     public void onDisable() {
 	plugin = null;
+    }
+    
+    public void registerEvents() {
+	PluginManager pm = Bukkit.getServer().getPluginManager();
+	pm.registerEvents(gsListener, plugin);
     }
 }

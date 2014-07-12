@@ -9,4 +9,7 @@ public class Message {
 	sender.sendMessage(ChatColor.RED + "You do not have permission for that!");
     }
     
+    public void playerOnly(CommandSender sender) {
+	sender.sendMessage(ChatColor.RED + "You do not have permission for that!");
+    }
 }
