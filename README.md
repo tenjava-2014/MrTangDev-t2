@@ -5,10 +5,10 @@ MrTangDev's ten.java submission
 
 This is a submission for the 2014 ten.java contest.
 
-- __Theme:__
+- __Theme:__ How can energy be harnessed and used in the Minecraft world?
 - __Time:__ Time 2 (7/12/2014 09:00 to 7/12/2014 19:00 UTC)
 - __MC Version:__ 1.7.9 (latest Bukkit beta)
-- __Stream URL:__ https://twitch.tv/MrTangHD
+- __Stream URL:__ https://twitch.tv/MrTangHD       <-  I'm not streaming
 
 <!-- put chosen theme above -->
 
