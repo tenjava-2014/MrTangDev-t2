@@ -31,7 +31,7 @@ public class GeneratorButton implements CommandExecutor {
 		    playerList.add(player.getName());
 		    
 		    player.getInventory().addItem(new ItemStack(Material.STONE_BUTTON));
-		    player.sendMessage(ChatColor.YELLOW + "Place a stone button on an Iron Block to create the generator starter.");
+		    player.sendMessage(ChatColor.YELLOW + "Place a stone button on an Iron Block to create the energy generator.");
 		    player.sendMessage(ChatColor.YELLOW + "You will need a lot of experience to start it up...");
 		    return true;
 		} else {

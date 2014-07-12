@@ -38,7 +38,7 @@ public class GeneratorStart implements Listener {
 		    player.setLevel(player.getLevel() - 30);
 		    player.sendMessage(ChatColor.DARK_GREEN + "You started up the energy generator...");
 		    player.playSound(player.getLocation(), Sound.AMBIENCE_THUNDER, 1, 10);
-		    
+
 		    plugin.getConfig().set(playerUUID + ".isActive", true);
 
 		    ArrayList<Player> nearbyPlayers = new ArrayList<Player>();
@@ -66,21 +66,24 @@ public class GeneratorStart implements Listener {
 	    public void run() {
 		for (Player player : Bukkit.getOnlinePlayers()) {
 		    if (plugin.getConfig().getBoolean(player.getUniqueId().toString() + ".isActive")) {
-			
+
 			int locX = plugin.getConfig().getInt(player.getUniqueId().toString() + ".x");
 			int locY = plugin.getConfig().getInt(player.getUniqueId().toString() + ".y");
 			int locZ = plugin.getConfig().getInt(player.getUniqueId().toString() + ".z");
 			String world = plugin.getConfig().getString(player.getUniqueId().toString() + ".world");
-			
+
 			Random random = new Random();
 			int x = random.nextInt(10) + locX;
 			int y = locY;
 			int z = random.nextInt(10) + locZ;
 			Location rLoc = new Location(Bukkit.getWorld(world), x, y, z);
-			Bukkit.getWorld(world).strikeLightning(rLoc);
+			Bukkit.getWorld(world).strikeLightning(rLoc); //Mostly for the "attracts lightning" effect.
+
+			int energyLevel = plugin.getConfig().getInt(player.getUniqueId().toString() + ".energy");
+			plugin.getConfig().set(player.getUniqueId().toString() + ".energy", energyLevel + 1);
 		    }
 		}
 	    }
-	}, 100l, 200l);
+	}, 100l, 300l);
     }
 }
